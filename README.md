@@ -1,7 +1,7 @@
 
 # Project Nirvash
 
-[![CodeFactor](https://www.codefactor.io/repository/github/matteoparlato/project-nirvash/badge/master)](https://www.codefactor.io/repository/github/matteoparlato/project-nirvash/overview/master)
+[![Build status](https://build.appcenter.ms/v0.1/apps/ccbb25c0-5f3b-40bf-9426-b19a7af3ef9f/branches/master/badge)](https://appcenter.ms) [![CodeFactor](https://www.codefactor.io/repository/github/matteoparlato/project-nirvash/badge/master)](https://www.codefactor.io/repository/github/matteoparlato/project-nirvash/overview/master)
 
 Registro elettronico S is the app that allows you to access to the Spaggiari S.p.A electronic register and keeps you updated about your school career.
 
