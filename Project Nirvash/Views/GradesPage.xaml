@@ -1,0 +1,159 @@
+﻿<Page
+    x:Class="Project_Nirvash.Views.GradesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="using:Project_Nirvash.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:Project_Nirvash.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:Project_Nirvash.Models"
+    xmlns:sys="using:System"
+    IsTextScaleFactorEnabled="False"
+    Style="{StaticResource PageStyle}"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <converters:IntToVisibilityConverter x:Name="IntToVisibilityConverter" />
+        <converters:BooleanToVisibilityBackConverter x:Name="BooleanToVisibilityBackConverter" />
+
+        <DataTemplate x:Key="SubjectTemplate" x:DataType="models:Subject">
+            <StackPanel Margin="0,0,0,12">
+
+                <TextBlock
+                    Style="{ThemeResource SubtitleTextBlockStyle}"
+                    Text="{x:Bind Description}"
+                    TextAlignment="Center" />
+
+                <TextBlock
+                    Margin="0,12,0,0"
+                    Foreground="{ThemeResource SystemBaseMediumColor}"
+                    Style="{ThemeResource BodyTextBlockStyle}"
+                    TextAlignment="Center">
+                    <Run x:Uid="FirstPeriod" Text="First period - Average" />
+                    <Run Text="{x:Bind sys:String.Format('{0:#,###.##}', FirstPeriodGradesAverage)}" />
+                </TextBlock>
+
+                <Border
+                    Margin="0,0,0,6"
+                    BorderBrush="{ThemeResource SystemChromeMediumColor}"
+                    BorderThickness="0.5" />
+
+                <ListView
+                    ItemTemplate="{StaticResource GradeTemplate}"
+                    ItemsSource="{x:Bind FirstPeriodGrades}"
+                    ScrollViewer.VerticalScrollMode="Disabled"
+                    SelectionMode="None"
+                    ShowsScrollingPlaceholders="False" />
+
+                <StackPanel Visibility="{x:Bind SecondPeriodGrades.Count, Converter={StaticResource BooleanToVisibilityBackConverter}}">
+
+                    <TextBlock
+                        Margin="0,12,0,0"
+                        Foreground="{ThemeResource SystemBaseMediumColor}"
+                        Style="{ThemeResource BodyTextBlockStyle}"
+                        TextAlignment="Center">
+                        <Run x:Uid="SecondPeriod" Text="Second period - Average" />
+                        <Run Text="{x:Bind sys:String.Format('{0:#,###.##}', SecondPeriodGradesAverage)}" />
+                    </TextBlock>
+
+                    <Border
+                        Margin="0,0,0,6"
+                        BorderBrush="{ThemeResource SystemChromeMediumColor}"
+                        BorderThickness="0.5" />
+
+                    <ListView
+                        ItemTemplate="{StaticResource GradeTemplate}"
+                        ItemsSource="{x:Bind SecondPeriodGrades}"
+                        ScrollViewer.VerticalScrollMode="Disabled"
+                        SelectionMode="None"
+                        ShowsScrollingPlaceholders="False" />
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+
+        <DataTemplate x:Key="GradeTemplate" x:DataType="models:Grade">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="76" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+
+                <Ellipse
+                    Grid.RowSpan="2"
+                    Grid.Column="0"
+                    Width="8"
+                    Height="8"
+                    Margin="0,18,0,0"
+                    VerticalAlignment="Top"
+                    Fill="{x:Bind Brush}" />
+                <TextBlock
+                    Grid.RowSpan="2"
+                    Grid.Column="1"
+                    Margin="4,-4,4,0"
+                    VerticalAlignment="Top"
+                    FontWeight="ExtraLight"
+                    Style="{ThemeResource SubheaderTextBlockStyle}"
+                    Text="{x:Bind DisplayValue}"
+                    TextAlignment="Center" />
+                <TextBlock
+                    Grid.Column="2"
+                    FontWeight="Normal"
+                    Style="{ThemeResource BaseTextBlockStyle}"
+                    Text="{x:Bind NotesForFamily}"
+                    TextWrapping="Wrap" />
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Opacity="0.6"
+                    Style="{ThemeResource BodyTextBlockStyle}"
+                    Text="{x:Bind Date.ToShortDateString()}" />
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid>
+        <ListView
+            Padding="18,18,18,58"
+            ItemTemplate="{StaticResource SubjectTemplate}"
+            ItemsSource="{x:Bind AccountDetails.Subjects}"
+            SelectionMode="None"
+            ShowsScrollingPlaceholders="False">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+
+        <StackPanel
+            Grid.Row="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Visibility="{x:Bind AccountDetails.Notes.Count, Converter={StaticResource IntToVisibilityConverter}}">
+
+            <TextBlock
+                x:Uid="NoDataTitleTextBlock"
+                Style="{ThemeResource TitleTextBlockStyle}"
+                Text="No data available"
+                TextAlignment="Center"
+                TextWrapping="Wrap" />
+            <TextBlock
+                x:Uid="NoDataSubtitleTextBlock"
+                Opacity="0.6"
+                Style="{ThemeResource SubtitleTextBlockStyle}"
+                Text="You'll be notified on new posts"
+                TextAlignment="Center"
+                TextWrapping="Wrap" />
+        </StackPanel>
+
+        <FontIcon
+            Grid.RowSpan="2"
+            Glyph="&#xE181;"
+            Style="{ThemeResource PageFontIcon}" />
+    </Grid>
+</Page>

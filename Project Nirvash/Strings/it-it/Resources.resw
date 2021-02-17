@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutDialog.CloseButtonText" xml:space="preserve">
+    <value>Chiudi</value>
+  </data>
+  <data name="AboutDialog.Title" xml:space="preserve">
+    <value>Informazioni su Registro Elettronico S</value>
+  </data>
+  <data name="Absence" xml:space="preserve">
+    <value>Assenza</value>
+  </data>
+  <data name="AbsenceDetailsDialog.CloseButtonText" xml:space="preserve">
+    <value>Chiudi</value>
+  </data>
+  <data name="AbsenceDetailsTitle" xml:space="preserve">
+    <value>Eventi del giorno {0}</value>
+  </data>
+  <data name="AbsenceNotification" xml:space="preserve">
+    <value>È presente un evento da giustificare</value>
+  </data>
+  <data name="AbsenceToJustifyDetailsDialog.CloseButtonText" xml:space="preserve">
+    <value>Chiudi</value>
+  </data>
+  <data name="AbsenceToJustifyDetailsTitle" xml:space="preserve">
+    <value>Eventi da giustificare</value>
+  </data>
+  <data name="AccountName" xml:space="preserve">
+    <value>Account di {0}</value>
+  </data>
+  <data name="AddBatterySaverExceptionButton.Content" xml:space="preserve">
+    <value>Aggiungi eccezione</value>
+  </data>
+  <data name="AdDialog.CloseButtonText" xml:space="preserve">
+    <value>Chiudi</value>
+  </data>
+  <data name="AdDialog.Title" xml:space="preserve">
+    <value>Supporta lo sviluppatore, clicca sulla pubblicità</value>
+  </data>
+  <data name="AddToOutlookCalendarButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Aggiungi a Calendario di Outlook</value>
+  </data>
+  <data name="AddToOutlookCalendarSwipeItem.Text" xml:space="preserve">
+    <value>Aggiungi a Calendario di Outlook</value>
+  </data>
+  <data name="AgendaDetailsDialog.CloseButtonText" xml:space="preserve">
+    <value>Chiudi</value>
+  </data>
+  <data name="AgendaDetailsTitle" xml:space="preserve">
+    <value>Attività del giorno {0}</value>
+  </data>
+  <data name="AgendaNotification" xml:space="preserve">
+    <value>Nuovo evento pubblicato in agenda</value>
+  </data>
+  <data name="AppCopyright.Text" xml:space="preserve">
+    <value>Registro elettronico S non rappresenta alcun software Gruppo Spaggiari S.p.A.. Il servizio registro elettronico "Scuola Attiva" è di proprietà di gruppo Spaggiari S.p.A., divisione Infoschool.</value>
+  </data>
+  <data name="AppDescription" xml:space="preserve">
+    <value>Project Nirvash</value>
+    <comment>Application description</comment>
+  </data>
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>Registro Elettronico S</value>
+    <comment>Application display name</comment>
+  </data>
+  <data name="AppFullDescription.Text" xml:space="preserve">
+    <value>Registro elettronico S è la prima app sul Microsoft Store per accedere al registro elettronico Spaggiari che ti consente di rimanere costantemente aggiornato sulla tua carriera scolastica.</value>
+  </data>
+  <data name="AppInformationHyperlinkButton.Content" xml:space="preserve">
+    <value>Informazioni sull'app</value>
+  </data>
+  <data name="AppPrivacy.Text" xml:space="preserve">
+    <value>Prima di iniziare dovrai leggere attentamente alcune informazioni relative alla tua privacy.</value>
+  </data>
+  <data name="Attachments.Text" xml:space="preserve">
+    <value>Allegati</value>
+  </data>
+  <data name="Attention" xml:space="preserve">
+    <value>Attenzione</value>
+  </data>
+  <data name="Authors.Text" xml:space="preserve">
+    <value>Autori</value>
+  </data>
+  <data name="BatterySaverDescriptionTextBlock.Text" xml:space="preserve">
+    <value>Quando attivi la modalità risparmio batteria, l'app non può più inviarti alcun tipo di notifica. Aggiungendo un'eccezione, potrai far si che l'app possa continuare ad essere eseguita in background e che continui a mantenerti aggiornato.</value>
+  </data>
+  <data name="BatterySaverTextBlock.Text" xml:space="preserve">
+    <value>Risparmio batteria</value>
+  </data>
+  <data name="Calendar.Content" xml:space="preserve">
+    <value>Calendario</value>
+  </data>
+  <data name="ContentAutoSuggestBox.PlaceholderText" xml:space="preserve">
+    <value>Cerca contenuto</value>
+  </data>
+  <data name="ContentMessageDialog.CloseButtonText" xml:space="preserve">
+    <value>Chiudi</value>
+  </data>
+  <data name="Contents.Content" xml:space="preserve">
+    <value>Materiale didattico</value>
+  </data>
+  <data name="CopyrightSettingsInfo.Text" xml:space="preserve">
+    <value>Potrai modificare in seguito questa opzione dalle impostazioni dell'app.</value>
+  </data>
+  <data name="Delay" xml:space="preserve">
+    <value>Ritardo</value>
+  </data>
+  <data name="DidactictNotification" xml:space="preserve">
+    <value>Nuovo materiale didattico pubblicato</value>
+  </data>
+  <data name="DisableLiveTileAndNotificationsDescriptionTextBlock.Text" xml:space="preserve">
+    <value>Se non vuoi più ricevere aggiornamenti dall'app puoi disattivare la sua esecuzione in background.</value>
+  </data>
+  <data name="DisableLiveTileAndNotificationsTextBlock.Text" xml:space="preserve">
+    <value>Disabilita live tile e notifiche</value>
+  </data>
+  <data name="DownloadContentButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Download</value>
+  </data>
+  <data name="DownloadTeachingTip.Subtitle" xml:space="preserve">
+    <value>Dowload del file selezionato in corso. Al termine del download, il file verrà aperto automaticamente.</value>
+  </data>
+  <data name="DownloadTeachingTip.Title" xml:space="preserve">
+    <value>Download in corso...</value>
+  </data>
+  <data name="EarlyExit" xml:space="preserve">
+    <value>Uscita anticipata</value>
+  </data>
+  <data name="EmptyEventsToJustifyTextBlock.Text" xml:space="preserve">
+    <value>Nessun evento da giustificare</value>
+  </data>
+  <data name="EmptyGradeNotesForFamily" xml:space="preserve">
+    <value>Valutazione senza descrizione</value>
+  </data>
+  <data name="EmptyLessonsTextBlock.Text" xml:space="preserve">
+    <value>Nessuna lezione da mostrare</value>
+  </data>
+  <data name="EmptyNoticeboardTextBlock.Text" xml:space="preserve">
+    <value>Nessuna comunicazione da mostrare</value>
+  </data>
+  <data name="EmptySubject" xml:space="preserve">
+    <value>Altro</value>
+  </data>
+  <data name="EmptySuggestions" xml:space="preserve">
+    <value>Nessun contenuto trovato</value>
+  </data>
+  <data name="EmptyTeacher" xml:space="preserve">
+    <value>Professore non specificato</value>
+  </data>
+  <data name="EmptyTomorrowAgendaTextBlock.Text" xml:space="preserve">
+    <value>Nessuna attività pianificata per domani</value>
+  </data>
+  <data name="Events.Content" xml:space="preserve">
+    <value>Assenze</value>
+  </data>
+  <data name="EventsToJustify.Text" xml:space="preserve">
+    <value>Eventi da giustificare</value>
+  </data>
+  <data name="EventsToJustifyAppBarButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Eventi da giustificare</value>
+  </data>
+  <data name="FirstPeriod.Text" xml:space="preserve">
+    <value>Primo periodo - Media:</value>
+  </data>
+  <data name="GoToTodayAppBarButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Vai a oggi</value>
+  </data>
+  <data name="GradeNotification" xml:space="preserve">
+    <value>Nuova valutazione pubblicata</value>
+  </data>
+  <data name="Grades.Content" xml:space="preserve">
+    <value>Valutazioni</value>
+  </data>
+  <data name="HttpRequestException" xml:space="preserve">
+    <value>Impossibile comunicare con il server remoto di Spaggiari. Verifica di avere una connessione ad Internet attiva e riprova.</value>
+  </data>
+  <data name="ItemDetailsDialog.CloseButtonText" xml:space="preserve">
+    <value>Chiudi</value>
+  </data>
+  <data name="LessonHourDescription.Text" xml:space="preserve">
+    <value>ª ORA</value>
+  </data>
+  <data name="Lessons.Content" xml:space="preserve">
+    <value>Lezioni</value>
+  </data>
+  <data name="LessonsDetailsDialog.CloseButtonText" xml:space="preserve">
+    <value>Chiudi</value>
+  </data>
+  <data name="LessonsDetailsTitle" xml:space="preserve">
+    <value>Lezioni del giorno {0}</value>
+  </data>
+  <data name="LiveTileAndNotificationsDescriptionTextBlock.Text" xml:space="preserve">
+    <value>La live tile ti consente di rimanere costantemente aggiornato sulla pubblicazione di nuovi voti, note, attività, comunicazioni ed eventuali eventi da giustificare.</value>
+  </data>
+  <data name="LiveTileAndNotificationsTextBlock.Text" xml:space="preserve">
+    <value>Live tile e notifiche</value>
+  </data>
+  <data name="LoginButton.Content" xml:space="preserve">
+    <value>Accedi</value>
+  </data>
+  <data name="MainPage.Content" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="ManageBackgroundAppsButton.Content" xml:space="preserve">
+    <value>Gestisci app in background</value>
+  </data>
+  <data name="NoDataSubtitleTextBlock.Text" xml:space="preserve">
+    <value>Riceverai una notifica alla
+pubblicazione di nuovi contenuti</value>
+  </data>
+  <data name="NoDataTitleTextBlock.Text" xml:space="preserve">
+    <value>Nessun contenuto disponibile</value>
+  </data>
+  <data name="NoteNotification" xml:space="preserve">
+    <value>Nuova nota pubblicata</value>
+  </data>
+  <data name="Notes.Content" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="Noticeboard.Content" xml:space="preserve">
+    <value>Comunicazioni</value>
+  </data>
+  <data name="NoticeboardHasAttachments.Text" xml:space="preserve">
+    <value>Possiede allegati</value>
+  </data>
+  <data name="NoticeboardNotification" xml:space="preserve">
+    <value>Nuova comunicazione pubblicata</value>
+  </data>
+  <data name="OpenAuthenticationSettingsButton.Content" xml:space="preserve">
+    <value>Apri le impostazioni di Windows</value>
+  </data>
+  <data name="OpenOutlookCalendarAppBarButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Apri Calendario di Outlook</value>
+  </data>
+  <data name="PasswordTextBox.PlaceholderText" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="PrivacyAndDiagnosticDataDescriptionTextBlock.Text" xml:space="preserve">
+    <value>L'app utilizza servizi di terze parti per raccogliere dati di diagnostica che possono essere impiegati per migliorare l'esperienza d'uso e la stabilità dell'app stessa.</value>
+  </data>
+  <data name="PrivacyAndDiagnosticDataHyperlink.Content" xml:space="preserve">
+    <value>Consulta l'informativa completa</value>
+  </data>
+  <data name="PrivacyAndDiagnosticDataHyperlink.NavigateUri" xml:space="preserve">
+    <value>http://neondev.altervista.org/Registro_Elettronico_S/Privacy_Policy.html</value>
+  </data>
+  <data name="PrivacyAndDiagnosticDataTextBlock.Text" xml:space="preserve">
+    <value>Privacy e dati di diagnostica</value>
+  </data>
+  <data name="PrivacyPolicyDialog.PrimaryButtonText" xml:space="preserve">
+    <value>Accetta</value>
+  </data>
+  <data name="PrivacyPolicyDialog.SecondaryButtonText" xml:space="preserve">
+    <value>Rifiuta</value>
+  </data>
+  <data name="PrivacyPolicyDialog.Title" xml:space="preserve">
+    <value>La tua privacy prima di tutto</value>
+  </data>
+  <data name="PublishedOn.Text" xml:space="preserve">
+    <value>Pubblicato il</value>
+  </data>
+  <data name="RecentNoticeboard.Text" xml:space="preserve">
+    <value>Comunicazioni recenti</value>
+  </data>
+  <data name="SecondPeriod.Text" xml:space="preserve">
+    <value>Secondo periodo - Media:</value>
+  </data>
+  <data name="SendDiagnosticDataCheckBox.Content" xml:space="preserve">
+    <value>Invia dati di diagnostica</value>
+  </data>
+  <data name="SendFeedbackHyperlinkButton.Content" xml:space="preserve">
+    <value>Invia un feedback</value>
+  </data>
+  <data name="ShareContentButton.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Condividi</value>
+  </data>
+  <data name="ShortDelay" xml:space="preserve">
+    <value>Ritardo breve</value>
+  </data>
+  <data name="SpaggiariAccountChangeUserDescriptionTextBlock.Text" xml:space="preserve">
+    <value>Vuoi accedere ad un altro account?</value>
+  </data>
+  <data name="SpaggiariAccountHyperlinkButton.Content" xml:space="preserve">
+    <value>Cambia utente</value>
+  </data>
+  <data name="SpaggiariAccountTextBlock.Text" xml:space="preserve">
+    <value>Account Spaggiari</value>
+  </data>
+  <data name="SupportTextBlock.Text" xml:space="preserve">
+    <value>Supporto</value>
+  </data>
+  <data name="TodayLessons.Text" xml:space="preserve">
+    <value>Lezioni di oggi</value>
+  </data>
+  <data name="ToJustify" xml:space="preserve">
+    <value> - Da giustificare</value>
+  </data>
+  <data name="TomorrowAgenda.Text" xml:space="preserve">
+    <value>Domani in agenda</value>
+  </data>
+  <data name="UnauthorizedUserException" xml:space="preserve">
+    <value>Le credenziali specificate non sono corrette. Controllale e riprova ad eseguire l'accesso.</value>
+  </data>
+  <data name="UnhandledException" xml:space="preserve">
+    <value>Si è verificato un errore sconosciuto durante l'accesso all'account. Contatta lo sviluppatore dell'app.</value>
+  </data>
+  <data name="UsernameTextBox.PlaceholderText" xml:space="preserve">
+    <value>Nome utente</value>
+  </data>
+  <data name="UseWindowsHelloCheckBox.Content" xml:space="preserve">
+    <value>Usa Windows Hello</value>
+  </data>
+  <data name="WelcomeToTextBlock.Text" xml:space="preserve">
+    <value>Benvenuto in</value>
+  </data>
+  <data name="WindowsHelloDescriptionTextBlock.Text" xml:space="preserve">
+    <value>Windows Hello è un nuovo sistema per eseguire l'accesso a dispositivi, app, servizi online e reti in modo sicuro. Abilitando l'autenticazione con Windows Hello l'app richiederà lo sblocco tramite PIN, impronta digitale o scansione dell'iride per eseguire l'accesso, in questo modo è possibile offrire una maggiore protezione da accessi non autorizzati al tuo account.</value>
+  </data>
+  <data name="WindowsHelloMessage" xml:space="preserve">
+    <value>Per motivi di sicurezza, è necessario verificare l'identità dell'utente.</value>
+  </data>
+  <data name="WindowsHelloRequirementsDescriptionTextBlock.Text" xml:space="preserve">
+    <value>Per abilitare questa funzione è necessario specificare un metodo di autenticazione valido (PIN, impronta digitale o scansione dell'iride) nelle impostazioni di Windows.</value>
+  </data>
+  <data name="WindowsHelloTextBlock.Text" xml:space="preserve">
+    <value>Windows Hello</value>
+  </data>
+  <data name="WriteCredentialsTextBlock.Text" xml:space="preserve">
+    <value>Inserisci le credenziali del tuo account</value>
+  </data>
+</root>

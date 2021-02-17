@@ -1,0 +1,223 @@
+<Page
+    x:Class="Project_Nirvash.Views.ShellPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:Windows10version1809Condition="using:Microsoft.UI.Xaml.Controls?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
+    xmlns:behaviors="using:Project_Nirvash.Behaviors"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:helpers="using:Project_Nirvash.Helpers"
+    xmlns:i="using:Microsoft.Xaml.Interactivity"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="using:Project_Nirvash.Views"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+    IsTextScaleFactorEnabled="False"
+    Loaded="OnLoaded"
+    mc:Ignorable="d">
+
+    <Grid x:Name="LayoutRoot">
+        <winui:NavigationView
+            x:Name="navigationView"
+            Background="{ThemeResource SystemControlBackgroundAltHighBrush}"
+            IsBackButtonVisible="Visible"
+            IsBackEnabled="{x:Bind IsBackEnabled, Mode=OneWay}"
+            IsSettingsVisible="True"
+            PaneTitle="{x:Bind PaneTitle}"
+            SelectedItem="{x:Bind Selected, Mode=OneWay}">
+            <winui:NavigationView.MenuItems>
+                <winui:NavigationViewItem
+                    x:Uid="MainPage"
+                    helpers:NavHelper.NavigateTo="views:MainPage"
+                    Content="Home"
+                    Icon="Home" />
+                <winui:NavigationViewItemSeparator />
+                <winui:NavigationViewItemHeader x:Name="MainPagesHeader" Content="{x:Bind AccountDetails.Name, Mode=OneWay}" />
+                <winui:NavigationViewItem
+                    x:Uid="Contents"
+                    helpers:NavHelper.NavigateTo="views:AttachmentsPage"
+                    Content="Teaching material">
+                    <winui:NavigationViewItem.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xEB3C;" />
+                    </winui:NavigationViewItem.Icon>
+                </winui:NavigationViewItem>
+                <winui:NavigationViewItem
+                    x:Uid="Events"
+                    helpers:NavHelper.NavigateTo="views:AbsencesPage"
+                    Content="Absences"
+                    Icon="BlockContact" />
+                <winui:NavigationViewItem
+                    x:Uid="Grades"
+                    helpers:NavHelper.NavigateTo="views:GradesPage"
+                    Content="Grades"
+                    Icon="ContactPresence" />
+                <winui:NavigationViewItem
+                    x:Uid="Lessons"
+                    helpers:NavHelper.NavigateTo="views:LessonsPage"
+                    Content="Lessons">
+                    <winui:NavigationViewItem.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xF738;" />
+                    </winui:NavigationViewItem.Icon>
+                </winui:NavigationViewItem>
+                <winui:NavigationViewItem
+                    x:Uid="Calendar"
+                    helpers:NavHelper.NavigateTo="views:AgendaPage"
+                    Content="Calendar"
+                    Icon="Calendar" />
+                <winui:NavigationViewItem
+                    x:Uid="Notes"
+                    helpers:NavHelper.NavigateTo="views:NotesPage"
+                    Content="Notes"
+                    Icon="ContactInfo" />
+                <winui:NavigationViewItem
+                    x:Uid="Noticeboard"
+                    helpers:NavHelper.NavigateTo="views:NoticeboardPage"
+                    Content="Noticeboard"
+                    Icon="PreviewLink" />
+            </winui:NavigationView.MenuItems>
+            <!--<i:Interaction.Behaviors>
+                <behaviors:NavigationViewHeaderBehavior DefaultHeader="{x:Bind Selected.Content, Mode=OneWay}">
+                    <behaviors:NavigationViewHeaderBehavior.DefaultHeaderTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <TextBlock Margin="{StaticResource SmallLeftRightMargin}" Style="{ThemeResource TitleTextBlockStyle}" Text="{Binding}" />
+                            </Grid>
+                        </DataTemplate>
+                    </behaviors:NavigationViewHeaderBehavior.DefaultHeaderTemplate>
+                </behaviors:NavigationViewHeaderBehavior>
+            </i:Interaction.Behaviors>-->
+
+            <Frame x:Name="shellFrame" IsTabStop="True" />
+        </winui:NavigationView>
+
+        <!--#region Login-->
+        <controls:Loading
+            x:Name="LoadingControl"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            Background="{ThemeResource SystemControlChromeMediumLowAcrylicWindowMediumBrush}"
+            Canvas.ZIndex="2"
+            IsLoading="True">
+            <Border CornerRadius="4">
+                <controls:DropShadowPanel
+                    x:Name="DropShadowContent"
+                    BlurRadius="10"
+                    OffsetX="0"
+                    OffsetY="4"
+                    ShadowOpacity="0.5"
+                    Color="#545454">
+                    <Grid
+                        x:Name="LoginGrid"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Background="{ThemeResource CardBackground}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <winui:ProgressBar
+                            x:Name="StatusProgressBar"
+                            Grid.Row="0"
+                            VerticalAlignment="Top"
+                            Background="Transparent"
+                            IsIndeterminate="True"
+                            Opacity="0">
+                            <Windows10version1809Condition:ProgressBar.OpacityTransition>
+                                <Windows10version1809:ScalarTransition />
+                            </Windows10version1809Condition:ProgressBar.OpacityTransition>
+                        </winui:ProgressBar>
+
+                        <StackPanel
+                            x:Name="LoginStackPanel"
+                            Grid.Row="1"
+                            Padding="35"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center">
+                            <TextBlock
+                                Margin="0,0,0,18"
+                                Style="{ThemeResource SubheaderTextBlockStyle}"
+                                TextAlignment="Center"
+                                TextWrapping="Wrap">
+                                <Run x:Uid="WelcomeToTextBlock" Text="Welcome to" />
+                                <Run Foreground="{ThemeResource SystemControlForegroundAccentBrush}" Text="Spaggiari" />
+                            </TextBlock>
+                            <TextBlock
+                                x:Uid="WriteCredentialsTextBlock"
+                                Opacity="0.6"
+                                Style="{ThemeResource TitleTextBlockStyle}"
+                                Text="Write the credentials of your account"
+                                TextAlignment="Center"
+                                TextWrapping="Wrap" />
+
+                            <StackPanel Margin="0,18,0,0">
+                                <TextBox
+                                    x:Name="UsernameTextBox"
+                                    x:Uid="UsernameTextBox"
+                                    BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
+                                    IsSpellCheckEnabled="False"
+                                    IsTextPredictionEnabled="False"
+                                    KeyDown="TextBox_KeyDown"
+                                    PlaceholderText="Username"
+                                    TextChanged="TextBox_TextChanged" />
+                                <PasswordBox
+                                    x:Name="PasswordPasswordBox"
+                                    x:Uid="PasswordTextBox"
+                                    Margin="0,5,0,0"
+                                    BorderBrush="{ThemeResource SystemControlBackgroundListMediumRevealBorderBrush}"
+                                    KeyDown="TextBox_KeyDown"
+                                    PasswordChanged="PasswordBox_PasswordChanged"
+                                    PlaceholderText="Password" />
+                                <Button
+                                    x:Name="LoginButton"
+                                    x:Uid="LoginButton"
+                                    Margin="0,8,0,0"
+                                    HorizontalAlignment="Center"
+                                    Click="Button_Click"
+                                    Content="Login"
+                                    IsEnabled="False"
+                                    Style="{StaticResource ButtonRevealStyle}" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </controls:DropShadowPanel>
+            </Border>
+        </controls:Loading>
+        <!--#endregion-->
+
+        <winui:TeachingTip x:Name="AppNotificationTeachingTip" PreferredPlacement="Center">
+            <winui:TeachingTip.IconSource>
+                <winui:FontIconSource FontFamily="Segoe MDL2 Assets" Glyph="&#xE946;" />
+            </winui:TeachingTip.IconSource>
+        </winui:TeachingTip>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  Remove the next 3 lines for left-only navigation.  -->
+                        <Setter Target="navigationView.PaneDisplayMode" Value="Top" />
+                        <Setter Target="MainPagesHeader.Visibility" Value="Collapsed" />
+                        <!--  Leave the next line for left-only navigation.  -->
+                        <!--<Setter Target="shellFrame.Padding" Value="24,0,24,24" />-->
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{x:Bind navigationView.ExpandedModeThresholdWidth}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <!--  Remove the next 3 lines for left-only navigation.  -->
+                        <Setter Target="navigationView.PaneDisplayMode" Value="Left" />
+                        <Setter Target="MainPagesHeader.Visibility" Value="Visible" />
+                        <!--  Leave the next line for left-only navigation.  -->
+                        <!--<Setter Target="shellFrame.Padding" Value="24,0,24,24" />-->
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </Grid>
+</Page>

@@ -1,0 +1,22 @@
+# top-most EditorConfig file
+root = true
+
+[*]
+end_of_line = crlf
+
+[*.{cs,xaml}]
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.cs]
+
+# CA1305: Specificare IFormatProvider
+dotnet_diagnostic.CA1305.severity = none
+
+# CA2007: Provare a chiamare ConfigureAwait sull'attività attesa
+dotnet_diagnostic.CA2007.severity = none
+
+# CA1304: Specificare CultureInfo
+dotnet_diagnostic.CA1304.severity = none

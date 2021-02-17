@@ -1,0 +1,61 @@
+﻿<ContentDialog
+    x:Class="Project_Nirvash.Dialogs.ItemDetailsDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="using:Project_Nirvash.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:Project_Nirvash.Dialogs"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:Project_Nirvash.Models"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+    x:Uid="ItemDetailsDialog"
+    CloseButtonText="Close"
+    DefaultButton="Close"
+    IsTextScaleFactorEnabled="False"
+    Loaded="ContentDialog_Loaded"
+    mc:Ignorable="d">
+
+    <ContentDialog.Resources>
+        <converters:IntToVisibilityBackConverter x:Name="IntToVisibilityBackConverter" />
+
+        <DataTemplate x:Key="AttachmentTemplate" x:DataType="models:Attachment">
+            <TextBlock
+                Style="{ThemeResource BodyTextBlockStyle}"
+                Text="{x:Bind FileName}"
+                TextWrapping="Wrap" />
+        </DataTemplate>
+    </ContentDialog.Resources>
+
+    <StackPanel>
+        <winui:ProgressBar x:Name="DownloadProgressBar" Background="Transparent" />
+
+        <TextBlock
+            Style="{ThemeResource SubtitleTextBlockStyle}"
+            Text="{x:Bind Item.ContentTitle}"
+            TextAlignment="Center" />
+        <TextBlock
+            Margin="0,8,0,0"
+            Style="{ThemeResource BodyTextBlockStyle}"
+            TextAlignment="Center">
+            <Run x:Uid="PublishedOn" Text="Published on" />
+            <Run Text="{x:Bind Item.ContentValidFrom.ToShortDateString()}" />
+        </TextBlock>
+
+        <StackPanel Visibility="{x:Bind Item.Attachments.Count, Converter={StaticResource IntToVisibilityBackConverter}}">
+            <TextBlock
+                x:Uid="Attachments"
+                Margin="0,18,0,0"
+                Foreground="{ThemeResource SystemAccentColorLight1}"
+                Style="{ThemeResource BodyTextBlockStyle}"
+                Text="Attachments"
+                TextAlignment="Center" />
+
+            <Border BorderBrush="{ThemeResource SystemAccentColorLight3}" BorderThickness="0.5" />
+
+            <ListView
+                ItemTemplate="{StaticResource AttachmentTemplate}"
+                ItemsSource="{x:Bind Item.Attachments, Mode=OneWay}"
+                SelectionChanged="ListView_SelectionChanged" />
+        </StackPanel>
+    </StackPanel>
+</ContentDialog>

@@ -1,0 +1,81 @@
+﻿<Page
+    x:Class="Project_Nirvash.Views.LessonsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="using:Project_Nirvash.Converters"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:helpers="using:Project_Nirvash.Helpers"
+    xmlns:local="using:Project_Nirvash.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    IsTextScaleFactorEnabled="False"
+    Style="{StaticResource PageStyle}"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <converters:IntToVisibilityConverter x:Name="IntToVisibilityConverter" />
+        <converters:IntToVisibilityBackConverter x:Name="IntToVisibilityBackConverter" />
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <CommandBar
+            Grid.Row="0"
+            Background="Transparent"
+            OverflowButtonVisibility="Collapsed"
+            Visibility="{x:Bind AccountDetails.Lessons.Count, Converter={StaticResource IntToVisibilityBackConverter}, Mode=OneWay}">
+            <CommandBar.PrimaryCommands>
+                <AppBarButton
+                    x:Uid="GoToTodayAppBarButton"
+                    Icon="GoToToday"
+                    Tapped="AppBarButton_Tapped"
+                    ToolTipService.ToolTip="Go to today" />
+            </CommandBar.PrimaryCommands>
+        </CommandBar>
+
+        <CalendarView
+            x:Name="LessonsCalendarView"
+            Grid.Row="1"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            CalendarIdentifier="GregorianCalendar"
+            CalendarViewDayItemChanging="CalendarView_CalendarViewDayItemChanging"
+            DayOfWeekFormat="{}{dayofweek.abbreviated}"
+            FirstDayOfWeek="Monday"
+            IsGroupLabelVisible="True"
+            MaxDate="{x:Bind helpers:DateTimeExtensions.EndingSchoolDate}"
+            MinDate="{x:Bind helpers:DateTimeExtensions.StartingSchoolDate}"
+            SelectedDatesChanged="CalendarView_SelectedDatesChanged"
+            SelectionMode="Single"
+            Visibility="{x:Bind AccountDetails.Lessons.Count, Converter={StaticResource IntToVisibilityBackConverter}, Mode=OneWay}" />
+
+        <StackPanel
+            Grid.Row="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Visibility="{x:Bind AccountDetails.Lessons.Count, Converter={StaticResource IntToVisibilityConverter}, Mode=OneWay}">
+
+            <TextBlock
+                x:Uid="NoDataTitleTextBlock"
+                Style="{ThemeResource TitleTextBlockStyle}"
+                Text="No data available"
+                TextAlignment="Center"
+                TextWrapping="Wrap" />
+            <TextBlock
+                x:Uid="NoDataSubtitleTextBlock"
+                Opacity="0.6"
+                Style="{ThemeResource SubtitleTextBlockStyle}"
+                Text="You'll be notified on new posts"
+                TextAlignment="Center"
+                TextWrapping="Wrap" />
+        </StackPanel>
+
+        <FontIcon
+            Grid.RowSpan="2"
+            Glyph="&#xE81C;"
+            Style="{ThemeResource PageFontIcon}" />
+    </Grid>
+</Page>

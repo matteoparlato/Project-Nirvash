@@ -1,0 +1,20 @@
+﻿<ContentDialog
+    x:Class="Project_Nirvash.Dialogs.ContentMessageDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:Project_Nirvash.Dialogs"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Uid="ContentMessageDialog"
+    CloseButtonText="Close"
+    DefaultButton="Close"
+    IsTextScaleFactorEnabled="False"
+    mc:Ignorable="d">
+
+    <ScrollViewer>
+        <TextBlock
+            Style="{ThemeResource BodyTextBlockStyle}"
+            Text="{x:Bind Message}"
+            TextWrapping="Wrap" />
+    </ScrollViewer>
+</ContentDialog>
