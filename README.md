@@ -9,7 +9,7 @@ Registro elettronico S is the app that allows you to access to the Spaggiari S.p
 <p align="center">
   <img src="https://github.com/matteoparlato/Project-Nirvash/blob/master/Project%20Nirvash/Assets/Banner.png"/>
   <a href='//www.microsoft.com/store/apps/9NMT8QDLC543?cid=storebadge&ocid=badge'>
-    <img src='https://assets.windowsphone.com/13484911-a6ab-4170-8b7e-795c1e8b4165/English_get_L_InvariantCulture_Default.png' alt='English badge' width='127' height='52' style='width: 127px; height: 52px;'/>
+    <img src="https://developer.microsoft.com/en-us/store/badges/images/English_get_L.png" width="127" height="52"/>
   </a>
 </p>
 
