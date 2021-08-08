@@ -5,7 +5,9 @@
     <RootNamespace>Project_Nirvash.Core</RootNamespace>
   </PropertyGroup>
 
-   <ItemGroup>
-    <Folder Include="Models\" />
+  <ItemGroup>
+    <Compile Remove="Models\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <None Remove="Models\**" />
   </ItemGroup>
 </Project>
