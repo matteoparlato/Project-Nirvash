@@ -23,7 +23,7 @@
                             Invoked="SwipeItem_Invoked"
                             Text="Add to Outlook Calendar">
                             <SwipeItem.IconSource>
-                                <FontIconSource FontFamily="Segoe MDL2 Assets" Glyph="&#xE1DB;" />
+                                <FontIconSource FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" Glyph="&#xE1DB;" />
                             </SwipeItem.IconSource>
                         </SwipeItem>
                     </SwipeItems>
@@ -76,7 +76,7 @@
                             Style="{ThemeResource ButtonRevealStyle}"
                             Tapped="Button_Tapped">
                             <FontIcon
-                                FontFamily="Segoe MDL2 Assets"
+                                FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
                                 FontSize="16"
                                 Glyph="&#xE1DB;" />
                         </Button>

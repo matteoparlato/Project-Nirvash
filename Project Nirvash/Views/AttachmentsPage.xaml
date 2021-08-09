@@ -102,7 +102,7 @@
                         <FontIcon
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
-                            FontFamily="Segoe MDL2 Assets"
+                            FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
                             Foreground="{ThemeResource SystemAccentColor}"
                             Glyph="{x:Bind ObjectTypeIcon}" />
                     </Grid>
@@ -128,7 +128,7 @@
                         Style="{ThemeResource ButtonRevealStyle}"
                         Tapped="DownloadContentButton_Tapped">
                         <FontIcon
-                            FontFamily="Segoe MDL2 Assets"
+                            FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
                             FontSize="16"
                             Glyph="&#xE896;" />
                     </Button>
@@ -146,7 +146,7 @@
                         Style="{ThemeResource ButtonRevealStyle}"
                         Tapped="ShareContentButton_Tapped">
                         <FontIcon
-                            FontFamily="Segoe MDL2 Assets"
+                            FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets"
                             FontSize="16"
                             Glyph="&#xE72D;" />
                     </Button>
@@ -225,7 +225,7 @@
             PreferredPlacement="Center"
             Subtitle="Download of the selected file in progress. Once the download is complete, the file will open automatically.">
             <winui:TeachingTip.IconSource>
-                <winui:FontIconSource FontFamily="Segoe MDL2 Assets" Glyph="&#xE896;" />
+                <winui:FontIconSource FontFamily="Segoe Fluent Icons, Segoe MDL2 Assets" Glyph="&#xE896;" />
             </winui:TeachingTip.IconSource>
         </winui:TeachingTip>
 

@@ -5,7 +5,6 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Microsoft.AppCenter.Analytics;
-using Microsoft.Services.Store.Engagement;
 using Microsoft.Toolkit.Uwp.Helpers;
 using Microsoft.Toolkit.Uwp.UI.Controls;
 using Microsoft.UI.Xaml.Controls;
@@ -30,7 +29,7 @@ using Project_Nirvash.Exceptions;
 using Project_Nirvash.Core.Helpers;
 using System.Net.Http;
 using AdDealsUniversalSDKW81;
-using AdDealsUniversalSDKW81.Views.UserControls;
+using Windows.UI.Xaml.Media;
 
 namespace Project_Nirvash.Views
 {
@@ -69,13 +68,6 @@ namespace Project_Nirvash.Views
             navigationView.BackRequested += OnBackRequested;
 
             // Start Project Nirvash
-            ApplicationView view = ApplicationView.GetForCurrentView();
-            view.TitleBar.ButtonBackgroundColor = Colors.Transparent;
-            view.TitleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
-
-            var coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
-            coreTitleBar.ExtendViewIntoTitleBar = true;
-
             navigationView.ItemInvoked += OnItemInvoked;
 
             AppNotification = AppNotificationTeachingTip;
@@ -84,6 +76,7 @@ namespace Project_Nirvash.Views
 
             Loader.IsLoading = true;
 
+#if !DEBUG
             AdManager.InitSDK(this.LayoutRoot, "3598", "8C2NWVZ32JIX");
             if (!ApplicationData.Current.LocalSettings.Values.ContainsKey("AnalyticsDisabled"))
             {
@@ -93,6 +86,32 @@ namespace Project_Nirvash.Views
             {
                 AdManager.SetConsent(AdManager.PrivacyPolicyConsent.REVOKE);
             }
+#endif
+
+            ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
+
+            titleBar.ButtonBackgroundColor = Colors.Transparent;
+            titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
+
+            // Hide default title bar.
+            CoreApplicationViewTitleBar coreTitleBar = CoreApplication.GetCurrentView().TitleBar;
+            coreTitleBar.ExtendViewIntoTitleBar = true;
+            UpdateTitleBarLayout(coreTitleBar);
+
+            // Set XAML element as a draggable region.
+            Window.Current.SetTitleBar(AppTitleBar);
+
+            // Register a handler for when the size of the overlaid caption control changes.
+            // For example, when the app moves to a screen with a different DPI.
+            coreTitleBar.LayoutMetricsChanged += CoreTitleBar_LayoutMetricsChanged;
+
+            // Register a handler for when the title bar visibility changes.
+            // For example, when the title bar is invoked in full screen mode.
+            coreTitleBar.IsVisibleChanged += CoreTitleBar_IsVisibleChanged;
+
+            // Register a handler for when the window changes focus
+            Window.Current.Activated += Current_Activated;
+
             // Stop Project Nirvash
         }
 
@@ -158,17 +177,19 @@ namespace Project_Nirvash.Views
 
         private void OnItemInvoked(WinUI.NavigationView sender, WinUI.NavigationViewItemInvokedEventArgs args)
         {
-            // Start Project Nirvash
             if (args.IsSettingsInvoked)
             {
                 NavigationService.Navigate(typeof(SettingsPage));
-                return;
             }
-            // Stop Project Nirvash
-            if (args.InvokedItemContainer is WinUI.NavigationViewItem selectedItem)
+            else
             {
-                var pageType = selectedItem.GetValue(NavHelper.NavigateToProperty) as Type;
-                NavigationService.Navigate(pageType, null, args.RecommendedNavigationTransitionInfo);
+                var selectedItem = args.InvokedItemContainer as WinUI.NavigationViewItem;
+                var pageType = selectedItem?.GetValue(NavHelper.NavigateToProperty) as Type;
+
+                if (pageType != null)
+                {
+                    NavigationService.Navigate(pageType, null, args.RecommendedNavigationTransitionInfo);
+                }
             }
         }
 
@@ -197,7 +218,7 @@ namespace Project_Nirvash.Views
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        private void Set<T>(ref T storage, T value, [CallerMemberName]string propertyName = null)
+        private void Set<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
         {
             if (Equals(storage, value))
             {
@@ -210,7 +231,7 @@ namespace Project_Nirvash.Views
 
         private void OnPropertyChanged(string propertyName) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-        #region Project Nirvash
+#region Project Nirvash
 
         public string PaneTitle
         {
@@ -298,7 +319,7 @@ namespace Project_Nirvash.Views
                 AppNotification.Title = "Attention".GetLocalized();
 
                 if (ex is UnauthorizedUserException)
-                { 
+                {
                     AppNotification.Subtitle = ex.Message;
                     UsernameTextBox.IsEnabled = true;
                     PasswordPasswordBox.IsEnabled = true;
@@ -377,6 +398,78 @@ namespace Project_Nirvash.Views
             (await AdManager.GetPopupAd(this.LayoutRoot, adKind)).ShowAd();
         }
 
-        #endregion Project Nirvash
+        private void CoreTitleBar_LayoutMetricsChanged(CoreApplicationViewTitleBar sender, object args)
+        {
+            UpdateTitleBarLayout(sender);
+        }
+
+        private void UpdateTitleBarLayout(CoreApplicationViewTitleBar coreTitleBar)
+        {
+            // Update title bar control size as needed to account for system size changes.
+            AppTitleBar.Height = coreTitleBar.Height;
+
+            // Ensure the custom title bar does not overlap window caption controls
+            Thickness currMargin = AppTitleBar.Margin;
+            AppTitleBar.Margin = new Thickness(currMargin.Left, currMargin.Top, coreTitleBar.SystemOverlayRightInset, currMargin.Bottom);
+        }
+
+        private void CoreTitleBar_IsVisibleChanged(CoreApplicationViewTitleBar sender, object args)
+        {
+            if (sender.IsVisible)
+            {
+                AppTitleBar.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                AppTitleBar.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        // Update the TitleBar based on the inactive/active state of the app
+        private void Current_Activated(object sender, Windows.UI.Core.WindowActivatedEventArgs e)
+        {
+            SolidColorBrush defaultForegroundBrush = (SolidColorBrush)Application.Current.Resources["TextFillColorPrimaryBrush"];
+            SolidColorBrush inactiveForegroundBrush = (SolidColorBrush)Application.Current.Resources["TextFillColorDisabledBrush"];
+
+            if (e.WindowActivationState == Windows.UI.Core.CoreWindowActivationState.Deactivated)
+            {
+                AppTitle.Foreground = inactiveForegroundBrush;
+            }
+            else
+            {
+                AppTitle.Foreground = defaultForegroundBrush;
+            }
+        }
+
+        // Update the TitleBar content layout depending on NavigationView DisplayMode
+        private void NavigationViewControl_DisplayModeChanged(WinUI.NavigationView sender, WinUI.NavigationViewDisplayModeChangedEventArgs args)
+        {
+            const int topIndent = 16;
+            const int expandedIndent = 48;
+            int minimalIndent = 104;
+
+            // If the back button is not visible, reduce the TitleBar content indent.
+            if (navigationView.IsBackButtonVisible.Equals(WinUI.NavigationViewBackButtonVisible.Collapsed))
+            {
+                minimalIndent = 48;
+            }
+
+            Thickness currMargin = AppTitleBar.Margin;
+
+            // Set the TitleBar margin dependent on NavigationView display mode
+            if (sender.PaneDisplayMode == WinUI.NavigationViewPaneDisplayMode.Top)
+            {
+                AppTitleBar.Margin = new Thickness(topIndent, currMargin.Top, currMargin.Right, currMargin.Bottom);
+            }
+            else if (sender.DisplayMode == WinUI.NavigationViewDisplayMode.Minimal)
+            {
+                AppTitleBar.Margin = new Thickness(minimalIndent, currMargin.Top, currMargin.Right, currMargin.Bottom);
+            }
+            else
+            {
+                AppTitleBar.Margin = new Thickness(expandedIndent, currMargin.Top, currMargin.Right, currMargin.Bottom);
+            }
+        }
+#endregion Project Nirvash
     }
 }

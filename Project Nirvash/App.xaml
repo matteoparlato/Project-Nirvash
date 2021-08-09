@@ -62,7 +62,7 @@
             </Style>
 
             <Style x:Key="BodyFontIcon" TargetType="FontIcon">
-                <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
+                <Setter Property="FontFamily" Value="Segoe Fluent Icons, Segoe MDL2 Assets" />
                 <Setter Property="FontSize" Value="14" />
                 <Setter Property="Foreground" Value="{ThemeResource SystemAccentColor}" />
                 <Setter Property="VerticalAlignment" Value="Center" />
@@ -72,7 +72,7 @@
 
             <Style x:Key="PageFontIcon" TargetType="FontIcon">
                 <Setter Property="Canvas.ZIndex" Value="-1" />
-                <Setter Property="FontFamily" Value="Segoe MDL2 Assets" />
+                <Setter Property="FontFamily" Value="Segoe Fluent Icons, Segoe MDL2 Assets" />
                 <Setter Property="FontSize" Value="286" />
                 <Setter Property="VerticalAlignment" Value="Bottom" />
                 <Setter Property="HorizontalAlignment" Value="Right" />

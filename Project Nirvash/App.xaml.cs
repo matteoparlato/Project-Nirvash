@@ -28,8 +28,6 @@ namespace Project_Nirvash
             get { return _activationService.Value; }
         }
 
-        public bool IsTouchPresent { get; }
-
         private const string AppCenterAPIKey = "8cb56210-6786-4a7b-87de-85fe424e48a8";
 
         public App()
@@ -59,8 +57,6 @@ namespace Project_Nirvash
             {
                 //
             }
-
-            IsTouchPresent = new TouchCapabilities().TouchPresent == 0;
 
             _activationService = new Lazy<ActivationService>(CreateActivationService);
         }
