@@ -30,27 +30,6 @@
                 </ResourceDictionary>
             </ResourceDictionary.ThemeDictionaries>
 
-            <AcrylicBrush
-                x:Key="NavigationViewDefaultPaneBackground"
-                BackgroundSource="Backdrop"
-                FallbackColor="{ThemeResource SystemChromeMediumColor}"
-                TintColor="{ThemeResource SystemChromeMediumColor}"
-                TintOpacity=".5" />
-
-            <AcrylicBrush
-                x:Key="NavigationViewTopPaneBackground"
-                BackgroundSource="HostBackdrop"
-                FallbackColor="{ThemeResource SystemChromeMediumColor}"
-                TintColor="{ThemeResource SystemChromeMediumColor}"
-                TintOpacity=".5" />
-
-            <AcrylicBrush
-                x:Key="NavigationViewExpandedPaneBackground"
-                BackgroundSource="HostBackdrop"
-                FallbackColor="{ThemeResource SystemChromeMediumColor}"
-                TintColor="{ThemeResource SystemChromeMediumColor}"
-                TintOpacity=".7" />
-
             <Style x:Key="BodyViewBox" TargetType="Viewbox">
                 <Setter Property="Height" Value="19.951171875" />
                 <Setter Property="Width" Value="19.951171875" />

@@ -393,9 +393,6 @@ pubblicazione di nuovi contenuti</value>
   <data name="ShortDelay" xml:space="preserve">
     <value>Ritardo breve</value>
   </data>
-  <data name="SpaggiariAccountChangeUserDescriptionTextBlock.Text" xml:space="preserve">
-    <value>Vuoi accedere ad un altro account?</value>
-  </data>
   <data name="SpaggiariAccountHyperlinkButton.Content" xml:space="preserve">
     <value>Cambia utente</value>
   </data>

@@ -368,9 +368,6 @@
   <data name="SendFeedbackHyperlinkButton.Content" xml:space="preserve">
     <value>Send a feedback</value>
   </data>
-  <data name="SpaggiariAccountChangeUserDescriptionTextBlock.Text" xml:space="preserve">
-    <value>Want to sign in with another account?</value>
-  </data>
   <data name="SpaggiariAccountHyperlinkButton.Content" xml:space="preserve">
     <value>Change user</value>
   </data>

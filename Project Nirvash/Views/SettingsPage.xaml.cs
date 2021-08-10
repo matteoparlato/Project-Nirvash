@@ -42,15 +42,15 @@ namespace Project_Nirvash.Views
             if (!await KeyCredentialManager.IsSupportedAsync())
             {
                 UseWindowsHelloCheckBox.IsEnabled = false;
-                WindowsHelloGrid.Visibility = Visibility.Visible;
+                WindowsHelloStackPanel.Visibility = Visibility.Visible;
             }
             else
             {
-                WindowsHelloGrid.Visibility = Visibility.Collapsed;
+                WindowsHelloStackPanel.Visibility = Visibility.Collapsed;
             }
 
             DeviceInformationCollection batteryCollection = await DeviceInformation.FindAllAsync(Battery.GetDeviceSelector());
-            BatterySaverGrid.Visibility = batteryCollection.Count > 0 ? Visibility.Visible : Visibility.Collapsed;
+            BatterySaverStackPanel.Visibility = batteryCollection.Count > 0 ? Visibility.Visible : Visibility.Collapsed;
 
             SendDiagnosticDataCheckBox.IsChecked = !ApplicationData.Current.LocalSettings.Values.ContainsKey("AnalyticsDisabled");
         }
