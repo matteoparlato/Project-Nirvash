@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap5="http://schemas.microsoft.com/appx/manifest/uap/windows10/5" xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3" xmlns:genTemplate="http://schemas.microsoft.com/appx/developer/windowsTemplateStudio" IgnorableNamespaces="uap uap5 mp uap3 genTemplate">
-  <Identity Name="60396NeonDev.RegistroelettronicoS" Publisher="CN=9549A8D5-78E1-42CB-9E2D-0F8E426F38A1" Version="3.0.111.0" />
+  <Identity Name="60396NeonDev.RegistroelettronicoS" Publisher="CN=9549A8D5-78E1-42CB-9E2D-0F8E426F38A1" Version="3.0.112.0" />
   <mp:PhoneIdentity PhoneProductId="85aaf3d1-5ab7-4681-9761-5738b7da16ce" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Registro elettronico S</DisplayName>
