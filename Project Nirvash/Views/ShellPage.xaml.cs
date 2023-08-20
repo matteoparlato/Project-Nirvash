@@ -29,8 +29,6 @@ using Project_Nirvash.Models;
 using Project_Nirvash.Exceptions;
 using Project_Nirvash.Core.Helpers;
 using System.Net.Http;
-using AdDealsUniversalSDKW81;
-using AdDealsUniversalSDKW81.Views.UserControls;
 
 namespace Project_Nirvash.Views
 {
@@ -83,16 +81,6 @@ namespace Project_Nirvash.Views
             Loader = LoadingControl;
 
             Loader.IsLoading = true;
-
-            AdManager.InitSDK(this.LayoutRoot, "3598", "8C2NWVZ32JIX");
-            if (!ApplicationData.Current.LocalSettings.Values.ContainsKey("AnalyticsDisabled"))
-            {
-                AdManager.SetConsent(AdManager.PrivacyPolicyConsent.GRANT);
-            }
-            else
-            {
-                AdManager.SetConsent(AdManager.PrivacyPolicyConsent.REVOKE);
-            }
             // Stop Project Nirvash
         }
 
@@ -366,15 +354,6 @@ namespace Project_Nirvash.Views
         private void TextBox_KeyDown(object sender, KeyRoutedEventArgs e)
         {
             if (e.Key == VirtualKey.Enter) Button_Click(null, null);
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="adKind"></param>
-        public async void ShowPopupAd(AdManager.AdKind adKind)
-        {
-            (await AdManager.GetPopupAd(this.LayoutRoot, adKind)).ShowAd();
         }
 
         #endregion Project Nirvash

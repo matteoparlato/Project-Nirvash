@@ -197,9 +197,6 @@
     <Compile Include="Dialogs\AbsenceDetailsDialog.xaml.cs">
       <DependentUpon>AbsenceDetailsDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Dialogs\AdDialog.xaml.cs">
-      <DependentUpon>AdDialog.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Dialogs\LessonsDetailsDialog.xaml.cs">
       <DependentUpon>LessonsDetailsDialog.xaml</DependentUpon>
     </Compile>
@@ -327,10 +324,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Dialogs\AdDialog.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Dialogs\LessonsDetailsDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -421,12 +414,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="AdDealsUniversalSDKW81">
-      <Version>4.7.4</Version>
-    </PackageReference>
-    <PackageReference Include="AdsJumbo">
-      <Version>5.9.1</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.AppCenter">
       <Version>5.0.2</Version>
     </PackageReference>
@@ -435,9 +422,6 @@
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Crashes">
       <Version>5.0.2</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.AppCenter.Push">
-      <Version>3.4.3</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.14</Version>
@@ -453,9 +437,6 @@
     </PackageReference>
     <PackageReference Include="Microsoft.UI.Xaml">
       <Version>2.8.5</Version>
-    </PackageReference>
-    <PackageReference Include="Microsoft.Xaml.Behaviors.Uwp.Managed">
-      <Version>2.0.1</Version>
     </PackageReference>
     <PackageReference Include="MimeTypesMap">
       <Version>1.0.8</Version>

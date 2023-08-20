@@ -9,7 +9,6 @@ using Project_Nirvash.Dialogs;
 using System.Linq;
 using System.Collections.Generic;
 using Project_Nirvash.Core.Helpers;
-using AdDealsUniversalSDKW81;
 
 namespace Project_Nirvash.Views
 {
@@ -18,8 +17,6 @@ namespace Project_Nirvash.Views
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        internal static bool AdViewed { get; private set; }
-
         Profile AccountDetails = Singleton<ClientExtensions>.Instance.AccountDetails;
 
         internal List<Lesson> Lessons { get; }
@@ -50,14 +47,6 @@ namespace Project_Nirvash.Views
         {
             SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
             Frame.BackStack.Clear();
-
-            if (!AdViewed)
-            {
-                AdViewed = true;
-                // AdJumbo ad network temporarily disabled
-                // await new AdDialog().ShowAsync();
-                ShellPage.Current.ShowPopupAd(AdManager.AdKind.FULLSCREENPOPUPAD);
-            }
         }
 
         /// <summary>
